@@ -91,3 +91,13 @@ to:
 ```
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}/zImage
 ```
+
+
+# starting radio UI
+
+Using ssh or serial:
+```
+/etc/init.d/lightdm stop
+/root/chroot_onboard.sh
+/etc/init.d/S99userappstart start
+```
