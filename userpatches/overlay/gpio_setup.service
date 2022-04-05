@@ -1,0 +1,18 @@
+[Unit]
+Description=GPIO setup
+Before=network.target
+Before=systemd-user-sessions.service
+Before=network-online.target
+
+[Service]
+User=root
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/gpio_setup.sh start
+ExecStop=/root/gpio_setup.sh stop
+TimeoutSec=30
+StartLimitInterval=350
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target

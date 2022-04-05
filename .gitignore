@@ -1,0 +1,4 @@
+userpatches/overlay/extracted/*
+userpatches/overlay/boot.scr
+build/
+uboot_sdcard.bin
