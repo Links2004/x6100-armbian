@@ -9,10 +9,21 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - SD card updade image
 - access to the x6100 (or a way to extract files form the update image)
 
+# VNC
+
+after armbian init setup, a VNC server will be running on port 5900 powerd by lightdm.
+
+Note:
+the bad build in WiFi Antenna can make a VNC connection Instable very fast.
+
+# WiFi / Network config
+
+on the comand line use `nmtui` or use the Network Manager UI after login.
+
 # build steps
 
 ## extract uboot:
-```
+```sh
 dd if=X6100-sdcard-20220219.img of=uboot_sdcard.bin bs=1024 skip=8 count=512 seek=0
 ```
 
@@ -53,7 +64,7 @@ example:
 
 
 ## build armbian:
-```
+```sh
 git clone https://github.com/armbian/build --depth=1
 cp -r userpatches/ build/
 
@@ -64,12 +75,12 @@ cd build
 ## install on sdcard
 
 install armbian:
-```
+```sh
 dd if=output/images/Armbian_22.05.0-trunk_Lime-a33_buster_current_5.15.32_xfce_desktop.img of=/dev/<SDCARD>
 ```
 
 install uboot:
-```
+```sh
 dd if=uboot_sdcard.bin of=/dev/<SDCARD> bs=1024 seek=8
 ```
 
@@ -83,21 +94,33 @@ change:
 /userpatches/overlay/boot.cmd
 
 from:
-```
+```sh
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}/zImage_org
 ```
 
 to:
-```
+```sh
 load ${devtype} ${devnum} ${kernel_addr_r} ${prefix}/zImage
 ```
 
+if changed live on the x6100 rebuild:
+```sh
+mkimage -C none -A arm -T script -d boot.cmd boot.scr
+```
 
 # starting radio UI
 
 Using ssh or serial:
-```
+```sh
 /etc/init.d/lightdm stop
 /root/chroot_onboard.sh
 /etc/init.d/S99userappstart start
+```
+
+# working with the device tree
+
+```sh
+dtc -I dtb -O dts sun8i-r16-x6100.dtb > sun8i-r16-x6100.dts
+
+dtc -I dts -O dtb sun8i-r16-x6100.dts > sun8i-r16-x6100.dtb
 ```
