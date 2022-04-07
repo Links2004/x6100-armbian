@@ -124,3 +124,28 @@ dtc -I dtb -O dts sun8i-r16-x6100.dtb > sun8i-r16-x6100.dts
 
 dtc -I dts -O dtb sun8i-r16-x6100.dts > sun8i-r16-x6100.dtb
 ```
+
+# uboot
+
+## get button state
+
+this code checks the buttons below the screen.
+number 1 is the left most.
+
+```sh
+#set matrix row
+gpio clear PG6
+
+if gpio input PE16 ; then
+echo 1
+elif gpio input PE17 ; then
+echo 2
+elif gpio input PE11 ; then
+echo 3
+else
+echo none
+fi
+
+#reset matrix
+gpio input PG6
+```
