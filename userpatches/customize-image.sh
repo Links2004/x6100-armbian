@@ -23,16 +23,17 @@ Main() {
 	apt-get -y remove chrony
 	systemctl enable systemd-timesyncd.service
 
-    touch /root/.no_rootfs_resize
+    #touch /root/.no_rootfs_resize
 
-	apt-get install -y wsjtx tightvncserver gdb-minimal gdbserver strace e2fsprogs xfce4-battery-plugin libqt5sql5-sqlite
+	apt-get install -y wsjtx tightvncserver gdb-minimal gdbserver strace e2fsprogs xfce4-battery-plugin xfce4-power-manager libqt5sql5-sqlite
     apt-get install -y nano htop curl ncdu gpg dtrx localepurge mtr-tiny screen iotop git wget net-tools etckeeper sudo file bash-completion psmisc dnsutils software-properties-common apt-transport-https xauth aptitude fzf
 
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dtb /boot/
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dts /boot/
     cp /tmp/overlay/extracted/zImage /boot/zImage_org
 
-    cp /tmp/overlay/boot.cmd /boot/boot.cmd
+	mv /boot/boot.cmd /boot/boot.cmd.armbian
+    cp /tmp/overlay/boot/* /boot/
 
     mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
 

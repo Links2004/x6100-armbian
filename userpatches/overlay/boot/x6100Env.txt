@@ -1,0 +1,4 @@
+BUTTON_NONE=setenv nosdboot 1
+BUTTON_1=setenv lkernel zImage_org; setenv bootargs_extra x6100_app=1 lightdm_screen=0 lightdm_vnc=1
+BUTTON_2=setenv lkernel zImage_org; setenv bootargs_extra x6100_app=0 lightdm_screen=1 lightdm_vnc=1
+BUTTON_3=setenv lkernel zImage; setenv bootargs_extra x6100_app=0 lightdm_screen=0 lightdm_vnc=1
