@@ -127,6 +127,12 @@ dtc -I dts -O dtb sun8i-r16-x6100.dts > sun8i-r16-x6100.dtb
 
 # uboot
 
+## get all gpio
+
+```sh
+gpio status -a
+```
+
 ## get button state
 
 this code checks the buttons below the screen.
