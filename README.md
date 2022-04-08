@@ -9,6 +9,22 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 - SD card updade image
 - access to the x6100 (or a way to extract files form the update image)
 
+# Bootup OS selection
+
+the Image build by this repo has multible boot options,
+based on which button is pressed on startup powerup of the Device.
+currently the buttons under the screen are used.
+
+- no Button: Boot internal storage (Y6100 orginal OS)
+- 1 Button: currently same as Button 2 but reserved for later use
+- 2 Button: stock Kernel + Armbian with xfce on screen
+- 3 Button: Armbian Kernel + boot to console
+
+Notes:
+- you can release the button as soon the button backlight LED come on.
+- Armbian Kernel currently has no support for the screen
+
+
 # VNC
 
 after armbian init setup, a VNC server will be running on port 5900 powerd by lightdm.
