@@ -1,0 +1,13 @@
+[Unit]
+Description=pulseaudio 2 alsa
+Before=systemd-user-sessions.service
+Before=lightdm.service
+Requires=pulseaudio_system.service
+
+[Service]
+User=root
+ExecStart=/bin/sh -c '/usr/bin/parec --rate=16000 --format=s16le --device=X6100_TX.monitor --client-name=pulse_2_alsa.service --stream-name=X6100 | /usr/bin/aplay --format S16_LE --rate 16000 -D mixplayback'
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

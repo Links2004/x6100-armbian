@@ -1,0 +1,14 @@
+[Unit]
+Description=pulseaudio system mode
+Before=systemd-user-sessions.service
+Before=lightdm.service
+Requires=amixer.service
+
+[Service]
+User=root
+Type=notify
+ExecStart=/usr/bin/pulseaudio -v --daemonize=no --system --realtime --log-target=journal --disallow-exit
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

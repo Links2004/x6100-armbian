@@ -1,0 +1,14 @@
+[Unit]
+Description=pulseaudio 2 network X6100 RX
+Before=systemd-user-sessions.service
+Before=lightdm.service
+Requires=pulseaudio_system.service
+Requires=alsa_2_pulse.service
+
+[Service]
+User=root
+ExecStart=/usr/bin/gst-launch-1.0 pulsesrc device=X6100_RX.monitor ! audioconvert ! audio/x-raw,rate=16000,channels=2,format=S16LE ! wavenc ! tcpserversink port=7000 host=0.0.0.0
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

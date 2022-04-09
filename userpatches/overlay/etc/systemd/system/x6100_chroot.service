@@ -1,0 +1,17 @@
+[Unit]
+Description=x6100 Internal charoot
+Before=systemd-user-sessions.service
+Before=lightdm.service
+
+[Service]
+User=root
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/chroot_onboard.sh start
+ExecStop=/root/chroot_onboard.sh stop
+TimeoutSec=30
+StartLimitInterval=350
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target
