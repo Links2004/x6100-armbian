@@ -26,8 +26,8 @@ Main() {
     #touch /root/.no_rootfs_resize
 
 	apt-get install -y wsjtx quisk tigervnc-standalone-server socat ser2net gdb-minimal gdbserver strace e2fsprogs xfce4-battery-plugin xfce4-power-manager libqt5sql5-sqlite xinetd
-	apt-get install -y gstreamer1.0-plugins-good gstreamer1.0-plugins-base gstreamer1.0-pulseaudio
-    apt-get install -y nano htop curl ncdu gpg dtrx localepurge mtr-tiny screen iotop git wget net-tools etckeeper sudo file bash-completion psmisc dnsutils software-properties-common apt-transport-https xauth aptitude fzf
+	apt-get install -y gstreamer1.0-plugins-good gstreamer1.0-plugins-base gstreamer1.0-pulseaudio gstreamer1.0-alsa
+    apt-get install -y nano htop curl ncdu gpg dtrx localepurge mtr-tiny screen iotop git wget net-tools sudo file bash-completion psmisc dnsutils software-properties-common apt-transport-https xauth aptitude fzf
 
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dtb /boot/
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dts /boot/
@@ -60,7 +60,7 @@ Main() {
 	systemctl enable alsa_2_pulse.service
 	#systemctl enable pulse_2_alsa.service
 
-	systemctl enable pulse_2_network_rx.service
+	systemctl enable alsa_2_network_rx.service
 
 	# startup
 	systemctl enable x6100_chroot.service
