@@ -25,7 +25,8 @@ Main() {
 
     #touch /root/.no_rootfs_resize
 
-	apt-get install -y wsjtx tightvncserver gdb-minimal gdbserver strace e2fsprogs xfce4-battery-plugin xfce4-power-manager libqt5sql5-sqlite
+	apt-get install -y wsjtx quisk tigervnc-standalone-server socat ser2net gdb-minimal gdbserver strace e2fsprogs xfce4-battery-plugin xfce4-power-manager libqt5sql5-sqlite xinetd
+	apt-get install -y gstreamer1.0-plugins-good gstreamer1.0-plugins-base gstreamer1.0-pulseaudio
     apt-get install -y nano htop curl ncdu gpg dtrx localepurge mtr-tiny screen iotop git wget net-tools etckeeper sudo file bash-completion psmisc dnsutils software-properties-common apt-transport-https xauth aptitude fzf
 
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dtb /boot/
@@ -37,14 +38,32 @@ Main() {
 
     mkimage -C none -A arm -T script -d /boot/boot.cmd /boot/boot.scr
 
-    cp /tmp/overlay/*.sh /root/
+    cp /tmp/overlay/root/* /root/
     chmod +x /root/*.sh
-
-    cp /tmp/overlay/gpio_setup.service /etc/systemd/system/gpio_setup.service
-    systemctl enable gpio_setup.service
 
     cp -r /tmp/overlay/extracted/modules/* /lib/modules/
 	cp -r /tmp/overlay/etc/* /etc/
+
+	sudo systemctl enable gpio_setup.service
+
+
+	# pulseaudio in system mode
+	systemctl --global disable pulseaudio.service pulseaudio.socket
+	systemctl --global mask pulseaudio.socket
+
+	systemctl enable pulseaudio_system.service
+	systemctl enable amixer.service
+
+	usermod -a -G pulse-access root
+	usermod -a -G bluetooth pulse
+
+	systemctl enable alsa_2_pulse.service
+	#systemctl enable pulse_2_alsa.service
+
+	systemctl enable pulse_2_network_rx.service
+
+	# startup
+	systemctl enable x6100_chroot.service
 
 	case $RELEASE in
 		stretch)
