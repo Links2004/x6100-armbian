@@ -1,0 +1,15 @@
+[Unit]
+Description=x6100 APP
+Requires=x6100_chroot.service
+Requires=amixer.service
+Requires=gpio_setup.service
+ConditionKernelCommandLine=x6100_app=1
+
+[Service]
+User=root
+ExecStart=/root/run_x6100_app.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

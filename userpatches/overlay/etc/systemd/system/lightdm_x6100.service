@@ -1,0 +1,20 @@
+[Unit]
+Description=lightdm config based on kernel param
+Before=network.target
+Before=systemd-user-sessions.service
+Before=network-online.target
+Before=lightdm.service
+
+[Service]
+User=root
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/root/lightdm_x6100.sh start
+ExecStop=/root/lightdm_x6100.sh stop
+TimeoutSec=30
+StartLimitInterval=350
+StartLimitBurst=10
+
+[Install]
+WantedBy=multi-user.target
+lightdm_screen=1

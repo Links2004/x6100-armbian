@@ -64,6 +64,8 @@ Main() {
 
 	# startup
 	systemctl enable x6100_chroot.service
+	systemctl enable x6100_app.service
+	systemctl enable lightdm_x6100.service
 
 	case $RELEASE in
 		stretch)
