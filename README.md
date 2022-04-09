@@ -15,8 +15,8 @@ the Image build by this repo has multible boot options,
 based on which button is pressed on startup powerup of the Device.
 currently the buttons under the screen are used.
 
-- no Button: Boot internal storage (Y6100 orginal OS)
-- 1 Button: currently same as Button 2 but reserved for later use
+- no Button: Boot internal storage (X6100 orginal OS)
+- 1 Button: stock Kernel + Armbian with X6100 APP on screen
 - 2 Button: stock Kernel + Armbian with xfce on screen
 - 3 Button: Armbian Kernel + boot to console
 
