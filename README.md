@@ -36,6 +36,20 @@ the bad build in WiFi Antenna can make a VNC connection Instable very fast.
 
 on the comand line use `nmtui` or use the Network Manager UI after login.
 
+
+# Audio via Network
+
+with armbian booted the X6100 will open a TCP server on port 7000 to allow access to the RX audio stream.
+
+## getting RX audio steam (Linux)
+
+this will create a `X6100_RX.monitor` pulse device and connect in to the X6100
+
+```sh
+pactl load-module module-null-sink sink_name=X6100_RX sink_properties=device.description=X6100_RX
+gst-launch-1.0 tcpclientsrc port=7000 host=<IP of the x6100> ! audio/x-raw,rate=16000,channels=2,format=S16LE ! pulsesink device=X6100_RX client-name=X6100
+```
+
 # build steps
 
 ## extract uboot:
