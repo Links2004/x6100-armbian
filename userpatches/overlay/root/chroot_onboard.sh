@@ -18,6 +18,8 @@ if [ "$1" == "start" ] ; then
     mount -o bind /var/run/pulse /mnt/x6100/tmp/pulse
 
     mkdir -p /var/run/dbus
+    mkdir -p /mnt/x6100 /var/run/dbus
+    mount -o bind /var/run/dbus /mnt/x6100/var/run/dbus
     mkdir -p /mnt/x6100/tmp/dbus
     mount -o bind /var/run/dbus /mnt/x6100/tmp/dbus
 
