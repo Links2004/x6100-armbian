@@ -21,6 +21,7 @@ Main() {
 
 	# chrony requires seccomp (which the stock kernel does not have)
 	apt-get -y remove chrony
+	apt-get -y install systemd-timesyncd
 	systemctl enable systemd-timesyncd.service
 
     #touch /root/.no_rootfs_resize
@@ -75,6 +76,9 @@ Main() {
 
 	# disable not needed services
 	systemctl disable smbd.service
+
+	# no zram support in stock kernel
+	systemctl disable armbian-zram-config.service
 
 	# fix bluetooth.service startup
 	mkdir -p /var/lib/bluetooth
