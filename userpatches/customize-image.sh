@@ -84,6 +84,15 @@ Main() {
 	# xrdp
 	adduser xrdp ssl-cert
 
+	# framebuffer-vncserver
+	/root/framebuffer-vncserver-build.sh
+
+	# cleanup image
+	rm -rf /root/build/
+	apt-get clean
+	rm -rf /var/lib/apt/lists/*
+
+
 	case $RELEASE in
 		stretch)
 			# your code here
