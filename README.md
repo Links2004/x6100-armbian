@@ -99,7 +99,7 @@ git clone https://github.com/armbian/build --depth=1
 cp -r userpatches/ build/
 
 cd build
-./compile.sh docker BOARD=lime-a33 BSPFREEZE=yes BRANCH=current RELEASE=buster BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_ONLY=no KERNEL_CONFIGURE=no DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base DESKTOP_APPGROUPS_SELECTED="3dsupport browsers" COMPRESS_OUTPUTIMAGE=sha,gpg,img
+./compile.sh docker BOARD=lime-a33 BSPFREEZE=yes BRANCH=current RELEASE=sid BUILD_MINIMAL=no BUILD_DESKTOP=yes KERNEL_ONLY=no KERNEL_CONFIGURE=no DESKTOP_ENVIRONMENT=xfce DESKTOP_ENVIRONMENT_CONFIG_NAME=config_base DESKTOP_APPGROUPS_SELECTED="3dsupport browsers" COMPRESS_OUTPUTIMAGE=sha,gpg,img
 ```
 
 ## install on sdcard

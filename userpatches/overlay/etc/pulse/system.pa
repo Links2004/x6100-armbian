@@ -56,6 +56,6 @@ load-module module-suspend-on-idle
 ### Enable positioned event sounds
 load-module module-position-event-sounds
 
-### Enable bluetooth
-load-module module-bluetooth-policy
-load-module module-bluetooth-discover
+### Enable bluetooth bluez-alsa is used by X6100 APP
+#load-module module-bluetooth-policy
+#load-module module-bluetooth-discover
