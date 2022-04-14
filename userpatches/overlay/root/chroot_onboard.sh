@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ "$1" == "start" ] ; then
     mkdir -p /mnt/x6100
@@ -22,6 +23,9 @@ if [ "$1" == "start" ] ; then
     mount -o bind /var/run/dbus /mnt/x6100/var/run/dbus
     mkdir -p /mnt/x6100/tmp/dbus
     mount -o bind /var/run/dbus /mnt/x6100/tmp/dbus
+
+    touch /root/qtkmsconfig.json
+    mount -o bind,ro /root/qtkmsconfig.json /mnt/x6100/etc/qtkmsconfig.json
 
     #mount -o bind,ro /usr/lib/arm-linux-gnueabihf/alsa-lib/libasound_module_pcm_pulse.so /mnt/x6100/usr/lib/alsa-lib/libasound_module_pcm_pulse.so
     #mount -o bind,ro /root/asound_x6100_app.conf /mnt/x6100/etc/asound.conf
