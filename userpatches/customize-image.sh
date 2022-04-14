@@ -29,7 +29,7 @@ Main() {
 	apt-get install -y gstreamer1.0-tools gstreamer1.0-plugins-good gstreamer1.0-plugins-base gstreamer1.0-pulseaudio gstreamer1.0-alsa
     apt-get install -y nano htop curl ncdu gpg dtrx localepurge mtr-tiny screen iotop git wget net-tools sudo file bash-completion psmisc dnsutils software-properties-common apt-transport-https xauth aptitude fzf
 	apt-get install -y bluez-alsa-utils bluez bluez-tools
-	apt-get install -y lightdm slick-greeter
+	apt-get install -y lightdm slick-greeter xrdp xorgxrdp
 
 	apt-get install -y wsjtx
 
@@ -79,6 +79,9 @@ Main() {
 
 	# fix upower.service startup
 	sed -i 's/PrivateUsers=yes/#PrivateUsers=yes/g' /lib/systemd/system/upower.service
+
+	# xrdp
+	adduser xrdp ssl-cert
 
 	case $RELEASE in
 		stretch)
