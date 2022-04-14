@@ -6,7 +6,7 @@ Requires=pulseaudio_system.service
 
 [Service]
 User=root
-ExecStart=/bin/sh -c '/usr/bin/arecord -D mixcapture --format S16_LE --rate 16000 | /usr/bin/paplay --device=X6100_RX --client-name=alsa_2_pulse.service --stream-name=X6100'
+ExecStart=/usr/bin/gst-launch-1.0 alsasrc device=mixcapture ! pulsesink device=X6100_RX client-name=alsa_2_pulse.service
 Restart=on-failure
 
 [Install]
