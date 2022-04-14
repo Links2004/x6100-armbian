@@ -2,3 +2,4 @@ userpatches/overlay/extracted/*
 userpatches/overlay/boot/boot.scr
 build/
 uboot_sdcard.bin
+.vscode-ctags
