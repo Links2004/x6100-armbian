@@ -1,0 +1,11 @@
+[Unit]
+Description=noVNC for lightdm
+Requires=lightdm.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/websockify --web=/usr/share/novnc/ 6080 localhost:5900
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

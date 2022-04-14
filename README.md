@@ -32,6 +32,13 @@ after armbian init setup, a VNC server will be running on port 5900 powerd by li
 Note:
 the bad build in WiFi Antenna can make a VNC connection Instable very fast.
 
+## noVNC
+
+the VNC server can be accessed via a webbrowser:
+```
+http://<x6100 IP>:6080/vnc_auto.html
+```
+
 # WiFi / Network config
 
 on the comand line use `nmtui` or use the Network Manager UI after login.
