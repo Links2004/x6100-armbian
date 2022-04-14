@@ -48,13 +48,16 @@ if [ "$ACTION" == "start" ] ; then
 else
     #KEYPAD OFF
     gpio_set 143 0
-    gpio_un 143
 
     #RF OFF
     gpio_set 138 0
-    gpio_un 138
 
     #WIFI OFF
     gpio_set 357 1
+
+    # disable exports
+    sleep 1
+    gpio_un 138
+    gpio_un 143
     gpio_un 357
 fi

@@ -72,7 +72,7 @@ if test "${console}" = "serial"; then setenv consoleargs "console=ttyS0,115200";
 if test "${earlycon}" = "on"; then setenv consoleargs "earlycon ${consoleargs}"; fi
 if test "${bootlogo}" = "true"; then setenv consoleargs "bootsplash.bootfile=bootsplash.armbian ${consoleargs}"; fi
 
-setenv bootargs "root=${rootdev} rootwait ${consoleargs} net.ifnames=0 panic=10 fbcon=rotate:3 video=VGA:480x800 ubootpart=${partuuid} ubootsource=${devtype} loglevel=${verbosity} ${bootargs_extra}"
+setenv bootargs "root=${rootdev} rootwait ${consoleargs} net.ifnames=0 ipv6.disable=1 panic=10 fbcon=rotate:3 video=VGA:480x800 ubootpart=${partuuid} ubootsource=${devtype} loglevel=${verbosity} ${bootargs_extra}"
 
 if test "${docker_optimizations}" = "on"; then setenv bootargs "${bootargs} cgroup_enable=memory swapaccount=1"; fi
 

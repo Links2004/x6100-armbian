@@ -4,10 +4,10 @@ service xvnc_1
     disable = no
     protocol = tcp
     socket_type = stream
-#    bind = 127.0.0.1
+    bind = 0.0.0.0
     port = 5900
     wait = yes
     user = root
     server = /usr/bin/Xvnc
-    server_args = :1 -inetd -query localhost -geometry 1600x900 -depth 16 -once -fp /usr/share/fonts/X11/misc -DisconnectClients=0 -NeverShared -SecurityTypes None
+    server_args = :1 -inetd -query localhost -geometry 1600x900 -depth 24 -once -fp /usr/share/fonts/X11/misc -DisconnectClients=0 -NeverShared -SecurityTypes None
 }
