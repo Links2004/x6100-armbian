@@ -94,6 +94,9 @@ Main() {
 	# framebuffer-vncserver
 	/root/framebuffer-vncserver-build.sh
 
+	# hamlib
+	/root/hamlib-build.sh
+
 	# cleanup image
 	rm -rf /root/build/
 	apt-get clean
