@@ -22,7 +22,7 @@ cd "${BASE_DIR}/build"
 ../bootstrap
 ../configure --prefix="" --host=arm-linux-gnueabihf --libdir=/lib/arm-linux-gnueabihf --without-cxx-binding
 
-make -f $(nproc)
+make -j $(nproc)
 make install
 
 cd "${BASE_DIR}"
