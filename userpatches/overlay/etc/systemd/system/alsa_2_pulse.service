@@ -3,6 +3,8 @@ Description=alsa 2 pulseaudio
 Before=systemd-user-sessions.service
 Before=lightdm.service
 Requires=pulseaudio_system.service
+Requires=amixer.service
+Requires=x6100_app.service
 
 [Service]
 User=root

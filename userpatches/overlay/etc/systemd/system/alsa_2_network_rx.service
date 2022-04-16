@@ -3,6 +3,7 @@ Description=alsa 2 network X6100 RX
 Before=systemd-user-sessions.service
 Before=lightdm.service
 Requires=amixer.service
+Requires=x6100_app.service
 
 [Service]
 User=root
