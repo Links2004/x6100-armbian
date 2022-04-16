@@ -53,8 +53,31 @@ with armbian booted the X6100 will open a TCP server on port 7000 to allow acces
 this will create a `X6100_RX.monitor` pulse device and connect in to the X6100
 
 ```sh
+export X6100_IP=<IP of the x6100>
 pactl load-module module-null-sink sink_name=X6100_RX sink_properties=device.description=X6100_RX
-gst-launch-1.0 tcpclientsrc port=7000 host=<IP of the x6100> ! audio/x-raw,rate=16000,channels=2,format=S16LE ! pulsesink device=X6100_RX client-name=X6100
+gst-launch-1.0 tcpclientsrc port=7000 host=${X6100_IP} ! audio/x-raw,rate=16000,channels=2,format=S16LE ! pulsesink device=X6100_RX client-name=X6100
+```
+
+# CAT via Network
+
+the X6100 runs a `rigctld` on TCP port 4532.
+
+for RAW Serial access via Network us TCP port 9990.
+
+## Virtual Serial port on Linux
+```sh
+export X6100_IP=<IP of the x6100>
+sudo socat pty,link=/dev/ttyX6100Cat,raw,echo=0,user=${USER} tcp:${X6100_IP}:9990
+```
+
+# Xorg
+
+## virtual FHD
+
+for setting up the screen with a virtual FHD resulution
+
+```sh
+xrandr --output None-1 --mode 480x800 --panning 1920x1080
 ```
 
 # build steps

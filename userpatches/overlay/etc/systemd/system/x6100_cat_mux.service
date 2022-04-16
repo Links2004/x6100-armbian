@@ -1,16 +1,12 @@
 [Unit]
-Description=x6100 APP
+Description=x6100 CAT MUX Server
 Requires=x6100_chroot.service
-Requires=amixer.service
-Requires=gpio_setup.service
 Requires=x6100_socat_cat.service
-ConditionKernelCommandLine=x6100_app=1
 
 [Service]
 User=root
-ExecStart=/root/run_x6100_app.sh
+ExecStart=/root/x6100_cat_mux
 Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
-

@@ -1,0 +1,12 @@
+[Unit]
+Description=USB-C Port RAW CAT control
+Requires=x6100_socat_cat.service
+Requires=x6100_cat_mux.service
+
+[Service]
+User=root
+ExecStart=/usr/bin/socat /dev/ttyS2_USB_CAT,b19200,raw,echo=0 tcp:127.0.0.1:9090
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

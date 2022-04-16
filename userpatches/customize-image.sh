@@ -72,9 +72,18 @@ Main() {
 
 	# startup
 	systemctl enable x6100_chroot.service
+	systemctl enable x6100_socat_cat.service
 	systemctl enable x6100_app.service
 	systemctl enable lightdm_x6100.service
 	systemctl enable novnc.service
+
+	wget https://github.com/Links2004/x6100-cat-mux/releases/download/1.0.2/x6100_cat_mux -O /root/x6100_cat_mux
+	chmod +x /root/x6100_cat_mux
+
+	systemctl enable x6100_cat_mux.service
+	systemctl enable rigctld_socat.service
+	systemctl enable rigctld.service
+	systemctl enable usbc_port_cat.service
 
 	# disable not needed services
 	systemctl disable smbd.service

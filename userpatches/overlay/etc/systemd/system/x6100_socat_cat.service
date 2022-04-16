@@ -1,0 +1,13 @@
+[Unit]
+Description=x6100 CAT redirect
+Requires=x6100_chroot.service
+
+[Service]
+User=root
+ExecStart=/root/run_x6100_socat_app.sh start
+ExecStop=/root/run_x6100_socat_app.sh stop
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+
