@@ -43,6 +43,17 @@ http://<x6100 IP>:6080/vnc_auto.html
 
 on the comand line use `nmtui` or use the Network Manager UI after login.
 
+## open network ports
+
+|  Port 	|  Software                                                 |
+|:--------- |:--------------------------------------------------------- |
+| TCP 9090	| RAW CAT                                                   |
+| TCP 7000	| RF RX (audio/x-raw,rate=16000,channels=2,format=S16LE)    |
+| TCP 6080  | noVNC                                                     |
+| TCP 5900	| VNC (xfec)                                                |
+| TCP 4532  | rigctld                                                   |
+| TCP 3389  | xrdp (untested)                                           |
+| TCP 22    | SSH        	                                            |
 
 # Audio via Network
 
