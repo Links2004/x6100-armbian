@@ -24,6 +24,25 @@ Notes:
 - you can release the button as soon the button backlight LED come on.
 - Armbian Kernel currently has no support for the screen
 
+# Status
+
+|       	  | WiFi | BT   | Local | USB-C  |
+|:----------- |:---- |:---- |:----- | :----- |
+| CAT	      |  ✅  |  ❔  |  ✅   |  ✅    |
+| RF Audio RX |  ✅  |  ❔  |  ✅   |  ✅    |
+| RF Audio TX |  ❌  |  ❔  |  ❌   |  ✅    |
+| I/Q         |  ⁉   |  ⁉   |  ⁉    |  ⁉     |
+
+✅ = Tested and working
+
+❔ = Needs testing and most likely little code changes
+
+❌ = Not working at the moment but possible in theory
+
+⁉ = unknown if possible needs recherche
+
+Note:
+local means running on the SoC in Linux on the X6100
 
 # VNC
 
