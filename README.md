@@ -17,7 +17,7 @@ currently the buttons under the screen are used.
 
 - no Button: Boot internal storage (X6100 orginal OS)
 - 1 Button: stock Kernel + Armbian with X6100 APP on screen
-- 2 Button: stock Kernel + Armbian with xfce on screen
+- 2 Button: stock Kernel + Armbian with xfce on screen + X6100 APP hidden but running for CAT
 - 3 Button: Armbian Kernel + boot to console
 
 Notes:

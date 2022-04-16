@@ -8,7 +8,7 @@ if [ "$1" == "start" ] ; then
     mount -t proc proc  /mnt/x6100/proc
     mount -t sysfs sys  /mnt/x6100/sys
     mount -o bind /dev  /mnt/x6100/dev
-    mount -t devpts /dev/pts /mnt/x6100/dev/pts/
+    mount -t devpts devpts /mnt/x6100/dev/pts/
 
     mkdir -p /mnt/x6100/run/udev
     mount -o bind /run/udev /mnt/x6100/run/udev
