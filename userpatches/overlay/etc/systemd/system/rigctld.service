@@ -1,13 +1,12 @@
 [Unit]
 Description=Hamlib rigctld
 Requires=x6100_socat_cat.service
-Requires=rigctld_socat.service
 Requires=x6100_cat_mux.service
 Requires=x6100_app.service
 
 [Service]
 User=root
-ExecStart=/usr/bin/rigctld --model=3087 --rig-file=/dev/ttyX6100Cat
+ExecStart=/usr/bin/rigctld --model=3087 --rig-file=127.0.0.1:9090
 Restart=on-failure
 
 [Install]

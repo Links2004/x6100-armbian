@@ -81,7 +81,6 @@ Main() {
 	chmod +x /root/x6100_cat_mux
 
 	systemctl enable x6100_cat_mux.service
-	systemctl enable rigctld_socat.service
 	systemctl enable rigctld.service
 	systemctl enable usbc_port_cat.service
 
