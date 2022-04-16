@@ -39,7 +39,7 @@ Notes:
 
 ❌ = Not working at the moment but possible in theory
 
-⁉ = unknown if possible needs recherche
+⁉ = unknown if possible needs research
 
 Note:
 local means running on the SoC in Linux on the X6100
@@ -69,7 +69,7 @@ on the command line use `nmtui` or use the Network Manager UI after login.
 | TCP 9090	| RAW CAT                                                   |
 | TCP 7000	| RF RX (audio/x-raw,rate=16000,channels=2,format=S16LE)    |
 | TCP 6080  | noVNC                                                     |
-| TCP 5900	| VNC (xfec)                                                |
+| TCP 5900	| VNC (xfce)                                                |
 | TCP 4532  | rigctld                                                   |
 | TCP 3389  | xrdp (untested)                                           |
 | TCP 22    | SSH        	                                            |
