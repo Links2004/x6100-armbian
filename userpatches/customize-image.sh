@@ -34,7 +34,7 @@ Main() {
 	apt-get install -y lightdm slick-greeter xrdp xorgxrdp libvncserver-dev novnc
 	apt-get install -y libtool cmake autoconf
 	apt-get install -y t5dxcb-plugin libqwt-qt5-6
-
+	apt-get install -y python3 python3-pip python3-numpy python3-tornado python3-serial python3-pyaudio python3-alsaaudio python3-pam python3-pulsectl python3-hamlib
 	apt-get install -y wsjtx fldigi flrig js8call
 
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dtb /boot/
@@ -105,6 +105,9 @@ Main() {
 
 	# hamlib
 	/root/hamlib-build.sh
+
+	# Universal_HamRadio_Remote_HTML5
+	/root/Universal_HamRadio_Remote_HTML5-build.sh
 
 	# cleanup image
 	rm -rf /root/build/
