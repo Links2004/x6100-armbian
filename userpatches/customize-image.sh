@@ -63,7 +63,7 @@ Main() {
 	systemctl enable amixer.service
 
 	usermod -a -G pulse-access root
-	usermod -a -G bluetooth pulse
+	#usermod -a -G bluetooth pulse
 
 	systemctl enable alsa_2_pulse.service
 	#systemctl enable pulse_2_alsa.service
