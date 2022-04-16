@@ -18,6 +18,9 @@ if [ "$ACTION" == "start" ] ; then
     if [ -e "${CAT_DEV_NEW}" ] ; then
         rm ${CAT_DEV_NEW}
     fi
+    if [ -e "${CAT_DEV_ORG}" ] ; then
+        rm ${CAT_DEV_ORG}
+    fi
 
     if [ ! -e "${CAT_DEV_ORG}" ] ; then
         # create orginal
@@ -25,6 +28,7 @@ if [ "$ACTION" == "start" ] ; then
         chown root:dialout ${CAT_DEV_ORG}
     fi
 
+    systemd-notify --ready --status="starting socat"
     exec socat pty,link=${CAT_DEV_NEW},raw,user=root,group=dialout,echo=0 tcp-listen:9990,bind=127.0.0.1,fork
 else
     if [ -e "${CAT_DEV_ORG}" ] ; then
@@ -43,5 +47,4 @@ else
     # restore orginal
     mknod -m 660 ${CAT_DEV} c 4 66
     chown root:dialout ${CAT_DEV}
-
 fi

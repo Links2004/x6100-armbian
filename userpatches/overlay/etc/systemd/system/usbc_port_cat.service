@@ -2,6 +2,7 @@
 Description=USB-C Port RAW CAT control
 Requires=x6100_socat_cat.service
 Requires=x6100_cat_mux.service
+Requires=x6100_app.service
 
 [Service]
 User=root
