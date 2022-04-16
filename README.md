@@ -6,13 +6,13 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 ![armbian on x6100](docs/armbian_on_x6100.jpg)
 
 # requirements
-- SD card updade image
+- SD card update image
 - access to the x6100 (or a way to extract files form the update image)
 
 # Bootup OS selection
 
-the Image build by this repo has multible boot options,
-based on which button is pressed on startup powerup of the Device.
+the Image build by this repo has multiple boot options,
+based on which button is pressed on startup of the Device.
 currently the buttons under the screen are used.
 
 - no Button: Boot internal storage (X6100 orginal OS)
@@ -27,7 +27,7 @@ Notes:
 
 # VNC
 
-after armbian init setup, a VNC server will be running on port 5900 powerd by lightdm.
+after armbian init setup, a VNC server will be running on port 5900 powered by lightdm.
 
 Note:
 the bad build in WiFi Antenna can make a VNC connection Instable very fast.
@@ -41,7 +41,7 @@ http://<x6100 IP>:6080/vnc_auto.html
 
 # WiFi / Network config
 
-on the comand line use `nmtui` or use the Network Manager UI after login.
+on the command line use `nmtui` or use the Network Manager UI after login.
 
 ## open network ports
 
@@ -73,7 +73,7 @@ gst-launch-1.0 tcpclientsrc port=7000 host=${X6100_IP} ! audio/x-raw,rate=16000,
 
 the X6100 runs a `rigctld` on TCP port 4532.
 
-for RAW Serial access via Network us TCP port 9990.
+for RAW Serial access via Network use TCP port 9990.
 
 ## Virtual Serial port on Linux
 ```sh
@@ -81,11 +81,19 @@ export X6100_IP=<IP of the x6100>
 sudo socat pty,link=/dev/ttyX6100Cat,raw,echo=0,user=${USER} tcp:${X6100_IP}:9990
 ```
 
+## wsjtx config
+
+for network or local access via Hamlib use `Hamlib NET rigctl` with the IP of the X6100.
+`127.0.0.1` is fine for local use.
+
+![wsjtx rigctld config](docs/wsjtx_network.png
+)
+
 # Xorg
 
 ## virtual FHD
 
-for setting up the screen with a virtual FHD resulution
+for setting up the screen with a virtual FHD resolution
 
 ```sh
 xrandr --output None-1 --mode 480x800 --panning 1920x1080
@@ -102,7 +110,7 @@ dd if=X6100-sdcard-20220219.img of=uboot_sdcard.bin bs=1024 skip=8 count=512 see
 we need:
 - zImage
 - sun8i-r16-x6100.dtb
-- kernel moduels found in /lib/modules/5.8.9
+- kernel modules found in /lib/modules/5.8.9
 
 put the files to /userpatches/overlay/extracted
 
