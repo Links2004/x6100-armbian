@@ -114,6 +114,7 @@ Main() {
 	apt-get clean
 	rm -rf /var/lib/apt/lists/*
 
+	echo Done
 
 	case $RELEASE in
 		stretch)
