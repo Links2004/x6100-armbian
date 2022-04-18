@@ -34,7 +34,7 @@ Main() {
 	apt-get install -y lightdm slick-greeter xrdp xorgxrdp libvncserver-dev novnc
 	apt-get install -y libtool cmake autoconf swig
 	apt-get install -y t5dxcb-plugin libqwt-qt5-6
-	apt-get install -y python3 python3-pip python3-numpy python3-tornado python3-serial python3-pyaudio python3-alsaaudio python3-pam python3-pulsectl python3-hamlib python3-pygame python3-scipy python3-cartopy
+	apt-get install -y python3 python3-pip python3-numpy python3-tornado python3-serial python3-pyaudio python3-alsaaudio python3-pam python3-pulsectl python3-hamlib python3-pygame python3-scipy python3-cartopy python3-pynput
 	apt-get install -y wsjtx fldigi flrig flmsg flamp flwrap js8call pat ax25-tools qsstv chirp morse pyqso
 
 	pip3 install etch_a_tv

@@ -74,4 +74,4 @@ cat > /root/qtkmsconfig.json <<EOL
 EOL
 fi
 
-chroot /mnt/x6100 /bin/bash -c "source /etc/profile && export TZ=${TZ} && nice --5 /usr/app_qt/x6100_ui_v100 ${APP_ARGS}"
+chroot /mnt/x6100 /bin/bash -c "source /etc/profile && export TZ=${TZ} && exec nice --5 /usr/app_qt/x6100_ui_v100 ${APP_ARGS}"
