@@ -32,10 +32,12 @@ Main() {
     apt-get install -y nano htop curl ncdu gpg dtrx localepurge mtr-tiny screen iotop git wget net-tools sudo file bash-completion psmisc dnsutils software-properties-common apt-transport-https xauth aptitude fzf tcpdump
 	apt-get install -y bluez-alsa-utils bluez bluez-tools
 	apt-get install -y lightdm slick-greeter xrdp xorgxrdp libvncserver-dev novnc
-	apt-get install -y libtool cmake autoconf
+	apt-get install -y libtool cmake autoconf swig
 	apt-get install -y t5dxcb-plugin libqwt-qt5-6
-	apt-get install -y python3 python3-pip python3-numpy python3-tornado python3-serial python3-pyaudio python3-alsaaudio python3-pam python3-pulsectl python3-hamlib
-	apt-get install -y wsjtx fldigi flrig js8call
+	apt-get install -y python3 python3-pip python3-numpy python3-tornado python3-serial python3-pyaudio python3-alsaaudio python3-pam python3-pulsectl python3-hamlib python3-pygame python3-scipy python3-cartopy
+	apt-get install -y wsjtx fldigi flrig flmsg flamp flwrap js8call pat ax25-tools qsstv chirp morse pyqso
+
+	pip3 install etch_a_tv
 
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dtb /boot/
     cp /tmp/overlay/extracted/sun8i-r16-x6100.dts /boot/
@@ -109,6 +111,7 @@ Main() {
 	/root/Universal_HamRadio_Remote_HTML5-build.sh
 
 	# cleanup image
+	localepurge
 	rm -rf /root/build/
 	apt-get clean
 	rm -rf /var/lib/apt/lists/*
