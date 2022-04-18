@@ -1,0 +1,1 @@
+KERNEL=="rtc1", SUBSYSTEM=="rtc", DRIVER=="", SYMLINK="rtc", MODE="0666"
