@@ -1,0 +1,12 @@
+[Unit]
+Description=noVNC for APP
+Requires=x6100_app.service
+ConditionKernelCommandLine=x6100_app_hide=1
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/websockify --web=/usr/share/novnc/ 6081 localhost:5901
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

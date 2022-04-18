@@ -17,7 +17,7 @@ currently the buttons under the screen are used.
 
 - no Button: Boot internal storage (X6100 orginal OS)
 - 1 Button: stock Kernel + Armbian with X6100 APP on screen
-- 2 Button: stock Kernel + Armbian with xfce on screen + X6100 APP hidden but running for CAT
+- 2 Button: stock Kernel + Armbian with xfce on screen + X6100 APP hidden but running for CAT and VNC on port 5901
 - 3 Button: Armbian Kernel + boot to console
 
 Notes:
@@ -69,7 +69,9 @@ on the command line use `nmtui` or use the Network Manager UI after login.
 | TCP 9090	| RAW CAT                                                   |
 | TCP 7000	| RF RX (audio/x-raw,rate=16000,channels=2,format=S16LE)    |
 | TCP 6080  | noVNC                                                     |
+| TCP 6081  | noVNC APP (Only running when Button 2 where pressed)      |
 | TCP 5900	| VNC (xfce)                                                |
+| TCP 5901	| VNC APP (Only running when Button 2 where pressed)        |
 | TCP 4532  | rigctld                                                   |
 | TCP 3389  | xrdp (untested)                                           |
 | TCP 22    | SSH        	                                            |
