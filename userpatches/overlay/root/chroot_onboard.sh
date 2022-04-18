@@ -27,6 +27,8 @@ if [ "$1" == "start" ] ; then
     touch /root/qtkmsconfig.json
     mount -o bind,ro /root/qtkmsconfig.json /mnt/x6100/etc/qtkmsconfig.json
 
+    mount -o bind,ro /etc/timezone /mnt/x6100/etc/timezone
+
     #mount -o bind,ro /usr/lib/arm-linux-gnueabihf/alsa-lib/libasound_module_pcm_pulse.so /mnt/x6100/usr/lib/alsa-lib/libasound_module_pcm_pulse.so
     #mount -o bind,ro /root/asound_x6100_app.conf /mnt/x6100/etc/asound.conf
 

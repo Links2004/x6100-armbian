@@ -56,4 +56,6 @@ mount -o bind ${CAT_DEV_NEW} /mnt/x6100${CAT_DEV}
 
 echo 1 > /sys/class/gpio/gpio138/value
 
-chroot /mnt/x6100 /bin/bash -c 'source /etc/profile && nice --5 /usr/app_qt/x6100_ui_v100'
+TZ=$(cat /etc/timezone)
+
+chroot /mnt/x6100 /bin/bash -c "source /etc/profile && export TZ=${TZ} && nice --5 /usr/app_qt/x6100_ui_v100"
