@@ -1,7 +1,7 @@
 
-![overview](overview.png | width=100%)
+![overview](overview.png)
 
-![SoC](SoC_pinout.png | width=100%)
+![SoC](SoC_pinout.png)
 
 # I2C0 bus
 SoC Module Pins: 039 (PH2), 040(PH3)
@@ -28,6 +28,7 @@ devices:
 Pin 1 by SD card
 
 | Pin | Name | Conection |
+|-----|------|-----------|
 | 01  | VDD for PCF8583 (RTC) | via Diodes from the yellow 3V3 battery |
 | 02  | Red LED | via Diodes and MOS |
 | 03  | Green LED | via Diodes and MOS |
@@ -50,22 +51,22 @@ Pin 1 by SD card
 | 20  | GND | |
 | 21  | AGND | |
 | 22  | AGND | |
-| 23  |
-| 24  |
-| 25  |
-| 26  |
-| 27  |
-| 28  |
-| 29  |
-| 30  |
-| 31  |
+| 23  | | |
+| 24  | | |
+| 25  | | |
+| 26  | | |
+| 27  | | |
+| 28  | | |
+| 29  | | |
+| 30  | | |
+| 31  | | |
 | 32  | ? Audio Out ? | MIC1P? Soc 013 |
 | 33  | Audio Out | CM108B MICIN Pin 27 |
-| 34  |
-| 35  |
+| 34  | | |
+| 35  | | |
 | 36  | ? Audio In ? | HPL? Soc 014 |
 | 37  | Audio In | CM108B Line Out L Pin 30 |
-| 38  |
+| 38  | | |
 | 39  | Onboard MIC ||
 | 40  | Onboard MIC ||
 
